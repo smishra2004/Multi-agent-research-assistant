@@ -218,41 +218,34 @@ Using deterministic generation improves consistency across report creation and e
 
 ---
 
-# 🚀 Key Features
+## 🚀 Key Features & Design Decisions
 
-### Multi-Agent Architecture
+### ✅ Multi-Agent Workflow
 
-Separates responsibilities across independent agents rather than relying on a single prompt.
+Separate Search, Reader, Writer, and Critic components collaborate to perform end-to-end research.
 
-### Tool Calling
+### ✅ Tool-Augmented Research
 
-Agents can invoke external tools dynamically using LangChain's tool interface.
+Uses Tavily search and web scraping tools to gather information beyond the model's training data.
 
-### Live Web Research
+### ✅ Grounded Report Generation
 
-Searches real-time web content rather than relying solely on model knowledge.
+Reports are generated from retrieved content rather than relying purely on LLM memory.
 
-### Automated Content Extraction
+### ✅ Self-Critique Mechanism
 
-Scrapes and cleans webpage content for deeper context.
+A dedicated Critic Chain reviews the final report and provides structured feedback.
 
-### AI Report Generation
+### ✅ Transparent Pipeline
 
-Creates structured research reports automatically.
+Users can inspect outputs from every stage of the workflow, not just the final answer.
 
-### Self-Critique System
+### ✅ Interactive Research Interface
 
-Uses a dedicated critic chain to evaluate generated reports.
-
-### Interactive UI
-
-Streamlit-based interface for running the complete workflow from a browser.
-
-### Downloadable Reports
-
-Generated reports can be exported as Markdown files.
+Built with Streamlit, featuring real-time pipeline execution and downloadable reports.
 
 ---
+
 
 # 📂 Project Structure
 
@@ -334,31 +327,27 @@ http://localhost:8501
 
 ---
 
-# 💡 Engineering Highlights
+## 💡 Engineering Highlights
 
-### LangChain Tool Integration
+### ✅ LangChain Agent Architecture
 
-Both search and scraping capabilities are exposed as LangChain tools using:
+Search and Reader components are implemented using LangChain's `create_agent()` with tool calling.
 
-```python
-@tool
-```
+### ✅ Custom Tool Integration
 
-allowing agents to decide when and how to use external capabilities.
+Web search and scraping capabilities are exposed through reusable LangChain tools.
 
-### Modular Agent Design
+### ✅ Chain-Based Content Generation
 
-Agents are isolated from business logic, making the system easier to extend and maintain.
+Writer and Critic stages use dedicated prompt chains for predictable structured outputs.
 
-### Prompt Chaining
+### ✅ Real-Time Knowledge Access
 
-Report generation and evaluation are separated into dedicated chains for better controllability.
+Combines LLM reasoning with live web data to research recent topics.
 
-### Human-Like Research Workflow
+### ✅ Modular Design
 
-The pipeline mirrors how humans conduct research:
-
-Search → Read → Write → Review
+Agents, tools, prompts, and UI are separated into independent components for maintainability.
 
 ---
 
