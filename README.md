@@ -351,36 +351,6 @@ Agents, tools, prompts, and UI are separated into independent components for mai
 
 ---
 
-# 📈 Future Improvements
-
-* Add LangGraph orchestration
-* Multi-source scraping
-* Citation verification
-* RAG integration
-* Report versioning
-* PDF export
-* Memory-enabled conversations
-* Multi-agent debate workflows
-* Research source ranking
-* Async parallel execution
-
----
-
-# 🎯 Skills Demonstrated
-
-* Agentic AI Systems
-* LangChain Agents
-* Tool Calling
-* Prompt Engineering
-* LLM Application Development
-* Web Scraping
-* Information Retrieval
-* Multi-Step Reasoning Pipelines
-* Streamlit Deployment
-* AI Product Engineering
-
----
-
 # 👨‍💻 Author
 
 Shubham Mishra
